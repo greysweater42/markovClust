@@ -6,7 +6,17 @@
 #' @param eStop stop criterium - Frobenius norm of matrix M_t - M_{t-1} 
 #' @keywords markov clustering, graph clustering
 #' @export
-#' @examples blabla
+#' @examples 
+#' A <- rbind(c(1, 1, 0, 1, 0, 1, 0),
+#'            c(1, 1, 1, 1, 0, 0, 0),
+#'            c(0, 1, 1, 1, 0, 0, 1),
+#'            c(1, 1, 1, 1, 1, 0, 0),
+#'            c(0, 0, 0, 1, 1, 1, 1),
+#'            c(1, 0, 0, 0, 1, 1, 1),
+#'            c(0, 0, 1, 0, 1, 1, 1))
+#' D <- diag(rowSums(A))
+#' M0 <- solve(D) %*% A
+#' markovClust(M0, 2.5, 0.001)
 
 
 markovClust <- function(M, r, eStop) {
