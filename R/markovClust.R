@@ -1,10 +1,13 @@
 #' Markov clustering function
 #'
 #' Markov clustering function algorithm
-#' @param 
-#' @keywords 
+#' @param M adjacency matrix
+#' @param r inflation parameter
+#' @param eStop stop criterium - Frobenius norm of matrix M_t - M_{t-1} 
+#' @keywords markov clustering, graph clustering
 #' @export
-#' @examples
+#' @examples blabla
+
 
 markovClust <- function(M, r, eStop) {
     inflation <- function(M, r) return(M ^ r / rowSums(M ^ r))
