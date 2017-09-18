@@ -4,7 +4,7 @@
 \alias{markovClust}
 \title{Markov clustering function}
 \usage{
-markovClust(M, r, eStop)
+markovClust(M, r = 2.5, eStop = 0.001)
 }
 \description{
 Markov clustering function algorithm
