@@ -1,13 +1,14 @@
 #' Summarizing Markov clustering algorithm
 #'
-#' Markov clustering function algorithm
+#' Summarizing Markov clustering algorithm
 #' @param 
 #' @keywords 
 #' @export
 #' @examples
 
-summary.MarkovClustObject <- function(M) {
+summary.MarkovClustObject <- function(MCO) {
     list(title="Markov clustering algorithm results",
-         M=M)
+         M=MCO$M,
+         nLoops=MCO$nLoops)
 }
 

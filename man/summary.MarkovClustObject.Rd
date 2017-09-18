@@ -4,8 +4,8 @@
 \alias{summary.MarkovClustObject}
 \title{Summarizing Markov clustering algorithm}
 \usage{
-\method{summary}{MarkovClustObject}(M)
+\method{summary}{MarkovClustObject}(MCO)
 }
 \description{
-Markov clustering function algorithm
+Summarizing Markov clustering algorithm
 }
