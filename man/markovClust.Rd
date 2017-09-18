@@ -4,14 +4,19 @@
 \alias{markovClust}
 \title{Markov clustering function}
 \usage{
-markovClust(M, r = 2.5, eStop = 0.001, nLoops = 100)
+markovClust(M, inflation = 2.5, expansion = 2, eStop = 0.001,
+  max_it = 100)
 }
 \arguments{
 \item{M}{adjacency matrix}
 
-\item{r}{inflation parameter}
+\item{inflation}{inflation parameter}
+
+\item{expansion}{expansion parameter}
 
 \item{eStop}{stop criterium - Frobenius norm of matrix M_t - M_{t-1}}
+
+\item{max_it}{maximum number of iterations}
 }
 \description{
 Markov clustering function algorithm

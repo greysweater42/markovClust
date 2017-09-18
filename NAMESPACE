@@ -3,3 +3,4 @@
 S3method(print,MarkovClustObject)
 S3method(summary,MarkovClustObject)
 export(markovClust)
+import(expm)
