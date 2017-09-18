@@ -6,6 +6,29 @@
 \usage{
 markovClust(M, r = 2.5, eStop = 0.001, nLoops = 100)
 }
+\arguments{
+\item{M}{adjacency matrix}
+
+\item{r}{inflation parameter}
+
+\item{eStop}{stop criterium - Frobenius norm of matrix M_t - M_{t-1}}
+}
 \description{
 Markov clustering function algorithm
 }
+\examples{
+A <- rbind(c(1, 1, 0, 1, 0, 1, 0),
+           c(1, 1, 1, 1, 0, 0, 0),
+           c(0, 1, 1, 1, 0, 0, 1),
+           c(1, 1, 1, 1, 1, 0, 0),
+           c(0, 0, 0, 1, 1, 1, 1),
+           c(1, 0, 0, 0, 1, 1, 1),
+           c(0, 0, 1, 0, 1, 1, 1))
+D <- diag(rowSums(A))
+M0 <- solve(D) \%*\% A
+markovClust(M0, 2.5, 0.001)
+}
+\keyword{clustering}
+\keyword{clustering,}
+\keyword{graph}
+\keyword{markov}
