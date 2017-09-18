@@ -17,12 +17,10 @@
 #'            c(0, 0, 0, 1, 1, 1, 1),
 #'            c(1, 0, 0, 0, 1, 1, 1),
 #'            c(0, 0, 1, 0, 1, 1, 1))
-#' D <- diag(rowSums(A))
-#' M0 <- solve(D) %*% A
-#' markovClust(M0, 2.5, 0.001)
+#' markovClust(A)
 
 
-markovClust <- function(M, inflation=2.5, expansion=2, eStop=0.001, max_it=100) {
+markovClust <- function(M, inflation=2.5, expansion=2, e_stop=0.001, max_it=100) {
     f_inflation <- function(M, r) return(M ^ r / rowSums(M ^ r))
     f_frobeniusNorm <- function(M1, M0) return(sqrt(sum((M1 - M0) ^ 2)))
     M <- f_inflation(M, 1)  # initial normalization
@@ -30,10 +28,13 @@ markovClust <- function(M, inflation=2.5, expansion=2, eStop=0.001, max_it=100) 
         Mt1 <- M
         M <- M %^% expansion
         M <- f_inflation(M, inflation)
-        if (f_frobeniusNorm(M, Mt1) < 0.001) break
+        if (f_frobeniusNorm(M, Mt1) < e_stop) break
     }
-    if (i == nLoops) warning("Convergence criterium not met") 
-    l <- list(M=round(M), nLoops=i)
+    if (i == max_it) warning("Convergence criterium not met") 
+    M <- round(M)
+    poles <- colSums(M) != 0
+    ord <- colSums(t(M[, poles]) * 1:sum(poles))
+    l <- list(M=round(M), nLoops=i, ord=ord)
     MCO <- structure(l, class = c("MarkovClustObject", "list"))
     return(MCO)
 }

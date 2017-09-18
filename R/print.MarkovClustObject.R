@@ -8,7 +8,8 @@
 
 print.MarkovClustObject <- function(MCO) {
     cat("Markov clustering algorithm\n\n")
-    cat("nLoops: ", MCO$nLoops, "\n")
+    cat("nLoops: ", MCO$nLoops, "\n\n")
+    cat("order: ", MCO$ord, "\n")
 }
 
 

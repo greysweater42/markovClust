@@ -4,7 +4,7 @@
 \alias{markovClust}
 \title{Markov clustering function}
 \usage{
-markovClust(M, inflation = 2.5, expansion = 2, eStop = 0.001,
+markovClust(M, inflation = 2.5, expansion = 2, e_stop = 0.001,
   max_it = 100)
 }
 \arguments{
@@ -14,9 +14,9 @@ markovClust(M, inflation = 2.5, expansion = 2, eStop = 0.001,
 
 \item{expansion}{expansion parameter}
 
-\item{eStop}{stop criterium - Frobenius norm of matrix M_t - M_{t-1}}
-
 \item{max_it}{maximum number of iterations}
+
+\item{eStop}{stop criterium - Frobenius norm of matrix M_t - M_{t-1}}
 }
 \description{
 Markov clustering function algorithm
@@ -29,9 +29,7 @@ A <- rbind(c(1, 1, 0, 1, 0, 1, 0),
            c(0, 0, 0, 1, 1, 1, 1),
            c(1, 0, 0, 0, 1, 1, 1),
            c(0, 0, 1, 0, 1, 1, 1))
-D <- diag(rowSums(A))
-M0 <- solve(D) \%*\% A
-markovClust(M0, 2.5, 0.001)
+markovClust(A)
 }
 \keyword{clustering}
 \keyword{clustering,}
