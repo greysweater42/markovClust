@@ -2,5 +2,7 @@
 
 S3method(print,MarkovClustObject)
 S3method(summary,MarkovClustObject)
+export(kernel_weights)
 export(markovClust)
 import(expm)
+useDynLib(markovClust)
