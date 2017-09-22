@@ -36,7 +36,8 @@ markovClust <- function(M, inflation=2.5, expansion=2, e_stop=0.001,
     poles <- colSums(M) != 0
     ord <- colSums(t(M[, poles]) * 1:sum(poles))
     cont <- if (!missing(name)) table(name, ord) else NULL
-    l <- list(M=round(M), nLoops=i, ord=ord, cont=cont)
+    nums <- table(ord)
+    l <- list(M=round(M), nLoops=i, ord=ord, nums=nums, cont=cont)
     MCO <- structure(l, class = c("MarkovClustObject", "list"))
     return(MCO)
 }

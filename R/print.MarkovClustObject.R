@@ -18,6 +18,9 @@ print.MarkovClustObject <- function(MCO) {
     cat("Markov clustering algorithm\n\n")
     cat("nLoops: ", MCO$nLoops, "\n\n")
     cat("order: ", MCO$ord, "\n\n")
+    cat("cluster sizes: \n")
+    print(MCO$nums)
+    cat("\n")
     cat("contingency table:\n")
     print(MCO$cont)
 }
