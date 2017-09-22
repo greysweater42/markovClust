@@ -19,23 +19,4 @@ void kernel_weights(double *X, int *p, int *n, double *phi, double *w) {
     }
 }
 
-/*
-void matrix_square(double *X, int *n, double *w) {
-    int i, j, k;
-    double matrix[*n][*n];
-    double sum = 0;
-    for (i=0; i<*n; i++)
-        for (j=0; j<*n; j++)
-            matrix[i][j] = X[*n * i + j];
 
-    for (i=0; i<*n; i++) {
-        for (j=0; j<*n; j++) {
-            for (k=0; k<*n; k++) {
-                sum = sum + matrix[i][k] * matrix[k][j];
-            }
-            w[*n * i + j] = sum;
-            sum = 0;
-        }
-    }  
-}
-*/
