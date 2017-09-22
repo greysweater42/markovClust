@@ -6,6 +6,24 @@
 \usage{
 \method{summary}{MarkovClustObject}(MCO)
 }
+\arguments{
+\item{MCO}{element of class MarkovClustObject}
+}
 \description{
 Summarizing Markov clustering algorithm
 }
+\examples{
+A <- rbind(c(1, 1, 0, 1, 0, 1, 0),
+           c(1, 1, 1, 1, 0, 0, 0),
+           c(0, 1, 1, 1, 0, 0, 1),
+           c(1, 1, 1, 1, 1, 0, 0),
+           c(0, 0, 0, 1, 1, 1, 1),
+           c(1, 0, 0, 0, 1, 1, 1),
+           c(0, 0, 1, 0, 1, 1, 1))
+m <- markovClust(A)
+summary(m)
+}
+\keyword{clustering}
+\keyword{clustering,}
+\keyword{graph}
+\keyword{markov}

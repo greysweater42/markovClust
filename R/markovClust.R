@@ -20,7 +20,8 @@
 #' markovClust(A)
 
 
-markovClust <- function(M, inflation=2.5, expansion=2, e_stop=0.001, max_it=100) {
+markovClust <- function(M, inflation=2.5, expansion=2, e_stop=0.001, 
+                        max_it=100, name) {
     f_inflation <- function(M, r) return(M ^ r / rowSums(M ^ r))
     f_frobeniusNorm <- function(M1, M0) return(sqrt(sum((M1 - M0) ^ 2)))
     M <- f_inflation(M, 1)  # initial normalization
@@ -30,11 +31,12 @@ markovClust <- function(M, inflation=2.5, expansion=2, e_stop=0.001, max_it=100)
         M <- f_inflation(M, inflation)
         if (f_frobeniusNorm(M, Mt1) < e_stop) break
     }
-    if (i == max_it) warning("Convergence criterium not met") 
-    M <- round(M)
+    if (i == max_it) warning("Stop criterium not met") 
+    M <- round(M)  # to do
     poles <- colSums(M) != 0
     ord <- colSums(t(M[, poles]) * 1:sum(poles))
-    l <- list(M=round(M), nLoops=i, ord=ord)
+    cont <- if (!missing(name)) table(name, ord) else NULL
+    l <- list(M=round(M), nLoops=i, ord=ord, cont=cont)
     MCO <- structure(l, class = c("MarkovClustObject", "list"))
     return(MCO)
 }
